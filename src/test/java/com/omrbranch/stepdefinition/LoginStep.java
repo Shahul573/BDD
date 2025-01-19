@@ -7,27 +7,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.reusablecode.BaseClass;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStep {
-	WebDriver driver;
+public class LoginStep extends BaseClass {
+	
 
 	@Given("user is on the OMR Branch page")
 	public void a() {
 
-		driver = new ChromeDriver();
-		driver.get("https://www.omrbranch.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		//driver = new ChromeDriver();
+		//driver.get("https://www.omrbranch.com/");
+		//driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
 
 	
 
 	@When("user enters {string} and {string}")
-	public void user_enters_and(String name, String pass) {
+	public void b(String name, String pass) {
 	    WebElement txtEmail = driver.findElement(By.id("email"));
 	    txtEmail.sendKeys(name);
 	    

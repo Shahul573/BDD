@@ -50,8 +50,8 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                10,
-                2,
+                4,
+                0,
                 0,
                 0,
                 0
@@ -93,7 +93,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 12) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 4) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -107,7 +107,7 @@ $(document).ready(function() {
         datasets: [{
             data: [
                 1,
-                2
+                0
             ],
             backgroundColor: [
                 "#00B000",
@@ -140,7 +140,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 3) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 1) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -153,8 +153,8 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                   0,
-                   1
+                   1,
+                   0
                ],
                backgroundColor: [
                 "#00B000",
@@ -228,7 +228,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>15-12-2024</td>
-      <td>15 Dec 2024, 15:27</td>
+      <td>24 Dec 2024, 15:01</td>
     </tr>
   </tbody>
 </table>
@@ -347,52 +347,52 @@ $(document).ready(function() {
       <tr>
         <td class="tagname"><a href="report-feature_2557825980.html">verify OMR Branch login Module</a></td>
 
-        <td      class="passed"    >10</td>
-        <td      class="failed"    >2</td>
+        <td      class="passed"    >4</td>
         <td >0</td>
         <td >0</td>
         <td >0</td>
-        <td class="total">12</td>
+        <td >0</td>
+        <td class="total">4</td>
 
         <td  class="passed"    >1</td>
-        <td  class="failed"    >2</td>
-        <td class="total">3</td>
+        <td >0</td>
+        <td class="total">1</td>
 
-        <td class="duration" data-value="136151383400">2:16.151</td>
-        <td class="failed">Failed</td>
+        <td class="duration" data-value="3971248700">3.971</td>
+        <td class="passed">Passed</td>
       </tr>
   </tbody>
 
   <tfoot class="total">
     <tr>
       <td></td>
-      <td>10</td>
-      <td>2</td>
+      <td>4</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>12</td>
+      <td>0</td>
+      <td>4</td>
 
       <td>1</td>
-      <td>2</td>
-      <td>3</td>
+      <td>0</td>
+      <td>1</td>
 
-      <td class="duration">2:16.151</td>
+      <td class="duration">3.971</td>
       <td>1</td>
     </tr>
     <tr>
       <td></td>
-      <td>83.33%</td>
-      <td>16.67%</td>
+      <td>100.00%</td>
+      <td>0.00%</td>
       <td>0.00%</td>
       <td>0.00%</td>
       <td>0.00%</td>
       <td></td>
-      <td>33.33%</td>
-      <td>66.67%</td>
-      <td></td>
-      <td></td>
+      <td>100.00%</td>
       <td>0.00%</td>
+      <td></td>
+      <td></td>
+      <td>100.00%</td>
     </tr>
   </tfoot>
 </table>

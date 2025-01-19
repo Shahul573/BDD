@@ -1,22 +1,21 @@
 package com.hotelbooking.selenium;
 
 import java.time.Duration;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class BookingHotel {
+public class ChangeBooking {
 
 	public static void main(String[] args) throws InterruptedException {
-
-		// login,print welcome user name
 
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://omrbranch.com/");
@@ -186,10 +185,6 @@ public class BookingHotel {
 		WebElement submt = driver.findElement(By.id("submitBtn"));
 		submt.click();
 
-		
-		//generate orderid
-		
-		
 		WebElement orderId = driver.findElement(By.name("booking-code"));
 		String text4 = orderId.getText();
 		String subStr = text4.substring(1, 11);
@@ -204,6 +199,75 @@ public class BookingHotel {
 		WebElement htlName = driver.findElement(By.xpath("//strong[text()='Hyatt Regency Chennai']"));
 		String text6 = htlName.getText();
 		System.out.println(text6);
+
+		// navigate to my booking page
+
+		driver.navigate().back();
+		WebElement scrlUp = driver.findElement(By.xpath("//a[@class='icoTwitter mr-2 dropdown-toggle']"));
+		js.executeScript("arguments[0].scrollIntoView(false)", scrlUp);
+		scrlUp.click();
+
+		WebElement clkAcnt = driver.findElement(By.xpath("//a[text()='My Account']"));
+		clkAcnt.click();
+		WebElement mypage = driver.findElement(By.id("step2"));
+		mypage.click();
+
+		WebElement txt = driver.findElement(By.xpath("//input[@class='form-control w-50 d-inline-block']"));
+		txt.sendKeys(subStr, Keys.ENTER);
+
+		WebElement getIDtxt = driver.findElement(By.xpath("//div[@class='room-code']"));
+		WebElement getHtlNmeTxt = driver.findElement(By.xpath("//h5[text()='Hyatt Regency Chennai Suite']"));
+		WebElement getPrice = driver.findElement(By.xpath("//strong[@class='total-prize']"));
+
+		List<String> asList = Arrays.asList(getIDtxt.getText().substring(1), getHtlNmeTxt.getText(), getPrice.getText());
+
+		for (String txts : asList) {
+			System.out.println(txts);
+		}
+
+		WebElement clkEdit = driver.findElement(By.xpath("//button[text()='Edit']"));
+		clkEdit.click();
+
+		WebElement changeDate = driver.findElement(By.name("check_in"));
+		js.executeScript("arguments[0].setAttribute('value','2025-01-09')", changeDate);
+
+		WebElement btnCnfrm = driver.findElement(By.xpath("//button[text()='Confirm']"));
+		btnCnfrm.click();
+
+		Thread.sleep(5000);
+		WebElement msgBooking = driver.findElement(By.xpath("//li[@class='alertMsg']"));
+		String text7 = msgBooking.getText();
+		System.out.println(text7);
+
+		driver.navigate().back();
+		WebElement acnt = driver.findElement(By.xpath("//a[@class='icoTwitter mr-2 dropdown-toggle']"));
+		acnt.click();
+		WebElement Acnt = driver.findElement(By.xpath("//a[text()='My Account']"));
+		Acnt.click();
+		WebElement page = driver.findElement(By.id("step2"));
+		page.click();
+		WebElement txtt = driver.findElement(By.xpath("//input[@class='form-control w-50 d-inline-block']"));
+		txtt.sendKeys(subStr, Keys.ENTER);
+
+		WebElement getIdtxt = driver.findElement(By.xpath("//div[@class='room-code']"));
+		WebElement getHtlnmeTxt = driver.findElement(By.xpath("//h5[text()='Hyatt Regency Chennai Suite']"));
+		WebElement getprice = driver.findElement(By.xpath("//strong[@class='total-prize']"));
+
+		List<String> aslist = Arrays.asList(getIdtxt.getText().substring(1), getHtlnmeTxt.getText(),
+				getprice.getText());
+
+		for (String txtss : aslist) {
+			System.out.println(txtss);
+		}
+
+		WebElement cancel = driver.findElement(By.xpath("//a[text()='Cancel']"));
+		cancel.click();
+
+		al.accept();
+		Thread.sleep(5000);
+		WebElement cancelMsg = driver.findElement(By.xpath("//li[@class='alertMsg']"));
+		String canclmsg = cancelMsg.getText();
+		System.out.println(canclmsg);
 
 	}
 

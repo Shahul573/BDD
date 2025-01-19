@@ -9,11 +9,11 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags="@Login1",snippets = SnippetType.CAMELCASE,stepNotifications = true,dryRun = false,
+@CucumberOptions(tags="@Login2",snippets = SnippetType.CAMELCASE,stepNotifications = true,dryRun = false,
 plugin={"pretty", "json:target\\joutput.json"},name="verify OMR Branch login with valid credentials",
 glue = "com\\omrbranch\\stepdefinition", features = "src\\test\\resources\\Features\\Login.feature")
 
-public class TestRunnerClass {
+public class TestRunnerClass2 {
 
 	@AfterClass
 	

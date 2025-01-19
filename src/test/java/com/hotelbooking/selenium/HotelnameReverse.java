@@ -28,16 +28,22 @@ public class HotelnameReverse {
 
 		WebElement loginClk = driver.findElement(By.xpath("//button[text()='Login']"));
 		loginClk.click();
-		WebElement clkHtl = driver.findElement(By.xpath("(//h3[@class='mt-4'])[2]"));
-		clkHtl.click();
+		//WebElement clkHtl = driver.findElement(By.xpath("(//h3[@class='mt-4'])[2]"));
+		//clkHtl.click();
+		List<WebElement> clkHtl = driver.findElements(By.xpath("//h3[@class='mt-4']"));
+		WebElement htl = clkHtl.get(1);
+		htl.click();
+		
+		
+		
 
 		WebElement Slctstate = driver.findElement(By.id("state"));
 		Select select = new Select(Slctstate);
-		select.selectByValue("Tamil Nadu");
+		select.selectByVisibleText("Tamil Nadu");
 
 		WebElement slctCity = driver.findElement(By.id("city"));
 		Select select2 = new Select(slctCity);
-		select2.selectByValue("Chennai");
+		select2.selectByVisibleText("Chennai");
 
 		WebElement slctRT = driver.findElement(By.id("room_type"));
 		Select select3 = new Select(slctRT);
@@ -56,11 +62,11 @@ public class HotelnameReverse {
 
 		WebElement noOfRooms = driver.findElement(By.id("no_rooms"));
 		Select select4 = new Select(noOfRooms);
-		select4.selectByValue("1");
+		select4.selectByVisibleText("1-One");
 
 		WebElement noOfAdults = driver.findElement(By.id("no_adults"));
 		Select select5 = new Select(noOfAdults);
-		select5.selectByValue("2");
+		select5.selectByVisibleText("2-Two");
 
 		WebElement noOfChild = driver.findElement(By.id("no_child"));
 		noOfChild.sendKeys("2");
@@ -75,8 +81,8 @@ public class HotelnameReverse {
 		element.click();
 		
 		Thread.sleep(5000);
-		List<Integer> dev = new ArrayList<Integer>();
-		List<Integer> qa = new ArrayList<Integer>();
+		List<String> dev = new ArrayList<String>();
+		List<String> qa = new ArrayList<String>();
 
 		WebElement hotelList = driver.findElement(By.id("hotellist"));
 		List<WebElement> htlName = hotelList.findElements(By.tagName("h5"));
@@ -84,9 +90,30 @@ public class HotelnameReverse {
 		Collections.reverse(htlName);
 		for (WebElement name : htlName) {
 			
-			System.out.println(name.getText());
+			//System.out.println(name.getText());
+			dev.add(name.getText());
 
 		}
+		qa.addAll(dev);
+		//Collections.reverse(qa);
+		
+		for (String a : qa) {
+			System.out.println(a);
+		}
+		for (int i = 0; i < qa.size(); i++) {
+			System.out.println("dev:" + "  " + dev.get(i) + "  " + "qa:" + "   " + qa.get(i));
+			
+			
+			
+		}
+		if (dev.equals(qa)) {
+			System.out.println("true");
+			
+		} else {
+
+			System.out.println("false");
+		}
+
 
 	}
 

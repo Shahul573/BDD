@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class OmrBranch {
+public class ErrorMessage {
 
 	public static void main(String[] args) {
 		WebDriver driver = new ChromeDriver();
@@ -29,9 +29,11 @@ public class OmrBranch {
 		WebElement clkHtl = driver.findElement(By.xpath("(//h3[@class='mt-4'])[2]"));
 		clkHtl.click();
 		driver.switchTo().frame("hotelsearch_iframe");
+		
 		WebElement srch = driver.findElement(By.id("searchBtn"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", srch);
+		
 		driver.switchTo().defaultContent();
 
 		WebElement inValidState = driver.findElement(By.id("invalid-state"));
